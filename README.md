@@ -12,7 +12,7 @@ Antes del despliegue agrega estas variables en **Settings → Environment Variab
 | --- | --- |
 | `TURSO_DATABASE_URL` | URL remota, por ejemplo `libsql://mi-base-mi-organizacion.turso.io`. |
 | `TURSO_AUTH_TOKEN` | Token de Turso con permiso de lectura y escritura. |
-| `ADMIN_PASSWORD` | Clave de edición larga y única de al menos 16 caracteres. |
+| `ADMIN_PASSWORD` | Clave de edición que usarán los organizadores. |
 
 `.env.example` tiene los nombres listos. **Debes completar los valores reales**; no se incluyen credenciales en GitHub. No uses prefijos públicos como NEXT_PUBLIC_ o VITE_ para los secretos.
 
@@ -56,7 +56,7 @@ Requiere Node.js 22 y npm. Ejecuta `npm ci`, copia .env.example a .env.local, co
 npm run dev
 ```
 
-Abre http://localhost:3000. Para probar sin Turso puedes usar `TURSO_DATABASE_URL=file:local.db`, dejar el token vacío y asignar una clave de al menos 16 caracteres. Esto es solo para desarrollo: Vercel exige la URL remota de Turso.
+Abre http://localhost:3000. Para probar sin Turso puedes usar `TURSO_DATABASE_URL=file:local.db`, dejar el token vacío y asignar una clave. Esto es solo para desarrollo: Vercel exige la URL remota de Turso.
 
 ```sh
 npm test

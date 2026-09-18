@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075e41">
+  <meta name="description" content="Marca los números de la rifa de Juanca y descarga el afiche actualizado.">
+  <title>La rifa de Juanca · Cada número cuenta</title>
+  <link rel="icon" href="balon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="brand-icon">⚽</span><span>JUANCA<span class="brand-sub">TODOS EN EL MISMO EQUIPO</span></span></a><span class="cause">Una rifa, una gran causa <span>♡</span></span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">CADA NÚMERO CUENTA</p><h1>Tu aporte también <em>juega.</em></h1><p>Marca los números de la rifa y comparte el afiche actualizado.</p></div><div class="event"><span>EL PRÓXIMO PARTIDO</span><strong>17 de octubre</strong><span>Lotería de Boyacá</span></div></section>
+    <div class="workspace">
+      <section class="editor" aria-labelledby="editor-title">
+        <div class="section-heading"><div><p class="eyebrow">01 / ELIGE LOS NÚMEROS</p><h2 id="editor-title">Armemos el equipo</h2></div><span class="small-ball">⚽</span></div>
+        <p class="help">Toca un número para marcarlo con un balón. Tócalo de nuevo para liberarlo.</p>
+        <div class="stats"><div><strong id="marked-count">0</strong><span>Marcados</span></div><div><strong id="available-count">100</strong><span>Disponibles</span></div><div><strong>$30.000</strong><span>Por número</span></div></div>
+        <div class="grid-toolbar"><span><i></i> Disponible <b>⚽</b> Marcado</span><button id="undo" class="text-button" disabled>↶ Deshacer</button></div>
+        <div id="number-grid" class="number-grid" aria-label="Números de la rifa del 1 al 100"></div>
+        <div class="grid-footer"><span id="selection-summary" aria-live="polite">¡Elige el primer número!</span><button id="clear" class="text-button" disabled>Limpiar selección</button></div>
+        <div class="save-note"><span>☁</span><div><strong id="save-state" role="status">Conectando con la selección compartida…</strong><p>Los cambios se guardan en la nube y se actualizan en los demás dispositivos cada 5 segundos.</p></div></div>
+        <div class="backup-actions"><button id="access" class="quiet-button">Habilitar edición</button><button id="refresh" class="quiet-button">↻ Actualizar</button></div>
+        <div class="backup-actions"><button id="backup" class="quiet-button">↓ Guardar respaldo</button><button id="restore" class="quiet-button">↑ Cargar respaldo</button><input id="backup-file" type="file" accept="application/json,.json" hidden></div>
+      </section>
+      <section class="preview" aria-labelledby="preview-title"><div class="section-heading"><div><p class="eyebrow">02 / COMPÁRTELO</p><h2 id="preview-title">Así va tu afiche</h2></div><span class="live"><i></i> En vivo</span></div><p class="help">Tu imagen original, con los números marcados.</p>
+        <div class="poster-frame"><div id="poster" class="poster"><img id="poster-image" src="afiche-original.jpeg" alt="Gran rifa pro fondos para la cirugía de Juanca. Sorteo el 17 de octubre, valor por número 30.000 pesos, premio de un millón de pesos." width="1024" height="1536"><div id="poster-targets" aria-label="Marcar números directamente en el afiche"></div></div></div>
+        <button id="download" class="primary-button" disabled>↓ Descargar imagen</button><p class="download-note">PNG en tamaño original · Lista para compartir por WhatsApp</p>
+      </section>
+    </div>
+    <footer>Gracias por ser parte de esta causa <span>♡</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="login-dialog"><h2>Habilitar edición</h2><p>Ingresa la clave de administración para marcar números desde este dispositivo.</p><form id="login-form"><label for="admin-password">Clave de edición<input id="admin-password" type="password" autocomplete="current-password" required></label><p id="login-error" role="alert"></p><div class="dialog-actions"><button type="button" id="cancel-login" class="quiet-button">Cancelar</button><button type="submit" class="primary-button">Entrar</button></div></form></dialog>
+  <dialog id="clear-dialog"><h2>¿Liberar todos los números?</h2><p>Se quitarán los balones del afiche. Puedes deshacer este cambio.</p><form method="dialog"><button value="cancel" class="quiet-button">Cancelar</button><button value="confirm" class="primary-button">Sí, limpiar</button></form></dialog>
+</body>
+</html>

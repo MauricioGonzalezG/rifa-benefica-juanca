@@ -1,0 +1,12 @@
+{
+  "name": "rifa-benefica-juanca",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local scripts/dev.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": { "@libsql/client": "0.18.0" }
+}
